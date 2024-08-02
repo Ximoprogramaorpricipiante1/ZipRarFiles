@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZipRarFiles</title>
-    <link rel="shortcut icon" href="favicon.png">
+    <title>Biblioteca de Archivos</title>
+    <link rel="shortcut icon" href="favicon.png"> <!-- Aquí se añade el favicon -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -31,8 +31,8 @@
         }
 
         .file {
-            background-color: white;
-            border: 1px solid #ddd;
+            background-color: rgb(75, 77, 72);
+            border: 1px solid #fefffc;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin: 10px;
@@ -42,13 +42,13 @@
         }
 
         .file img {
-            width: 100px;
+            width: 100px; /* Ajusta el tamaño de la imagen si es necesario */
             height: auto;
         }
 
         footer {
             background-color: #f56411;
-            color: white;
+            color: rgb(236, 236, 229);
             text-align: center;
             padding: 10px 0;
             position: fixed;
@@ -60,31 +60,31 @@
 <body>
     <header>
         <h1>ZipRarFiles</h1>
-        <nav>
-            
-        </nav>
     </header>
     <main>
-        <section id="inicio">
-            
-        </section>
-        <section id="archivos">
-           
-                <!-- Archivos se listarán aquí -->
-            </div>
-        </section>
-        <section id="contacto">
-           
-        </section>
+        <div class="file-container">
+            <!-- Archivos se listarán aquí -->
+        </div>
     </main>
     <footer>
-        <p>&copy; 2024 Biblioteca de Archivos</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const files = [
-                { name: 'Archivo1.rar', url: 'archivos/Archivo1.rar', type: 'rar' },
-                { name: 'Archivo2.zip', url: 'archivos/Archivo2.zip', type: 'zip' },
+                { name: 'discord', url: 'https://mega.nz/file/iTBlWCCJ#_nqJ47GG_A5GV0m6Mk0Jv9DjeSs6Nq3i1J7SWm5BtXY', type: 'rar' },
+                { name: 'epic games laucher', url: 'https://mega.nz/file/HTJQjIZQ#JzwgxyWlQjiwhDrao-qqGtZzHkkG11tttVN-b9tDphw', type: 'zip' },
+                  { name: 'fivem', url: 'https://mega.nz/file/iH4WzIBA#DjuWcu_GrdqK7qVDExCw341wJf2HBfOUs8NzLLjYuHE', type: 'zip' },
+                  { name: 'navegador opera gx', url: 'https://mega.nz/file/mKQSmLgT#-jpdt_jXAr3GPmdMGe7c-vn3FxddsRYdySP-3xDG6zg', type: 'zip' },
+                  { name: 'recueva', url: 'https://mega.nz/file/zHwVwbIC#WPHV9tMKpFafgSMnP0_lRs-KndmIlfgkoh8jgs2k604', type: 'zip' },
+                  { name: 'rockstar games launcher', url: 'https://mega.nz/file/PfphDBiZ#LoZ7m_gT4Oi3wUBhK0Cbb7xMEgRzOjz86TYMhhq9dUM', type: 'zip' },
+                  { name: 'samp instalador', url: 'https://mega.nz/file/aHRwDSoC#fcYWYjgZndJuveFayn4CKmeirP6yCgy5Ot5YrzWGoOM', type: 'zip' },
+                  { name: 'steam', url: 'https://mega.nz/file/ub4GDawB#fxMSrRSTJI5PnT76APClyssH19CXQI-BDFv3UL8ArZM', type: 'zip' },
+                  { name: 'Tlauncher', url: 'https://mega.nz/file/nSgzRCZS#LD_j6XPS5kWy8l3UKgDWvXaWDKJslZe5futnLNcxG-U', type: 'zip' },
+                  { name: 'visual studio code', url: 'https://mega.nz/file/KbZVlawZ#4XTLSGdKp13WtUNKrySRw7Pi_doAyAe4mQ00SEkppoQ', type: 'zip' },
+                  { name: 'server para crear tu servidor de samp', url: 'https://mega.nz/file/WGIGxDqZ#_qVQwnp280ahHIY5T8vSu3K0zOSlDTsS6xdiruuXF5c', type: 'zip' },
+
+                
+                // Agrega más archivos aquí
             ];
 
             const fileContainer = document.querySelector('.file-container');
@@ -93,11 +93,12 @@
                 const fileElement = document.createElement('div');
                 fileElement.classList.add('file');
                 
-                let imageUrl = 'images/default-icon.png';
+                // Determina la imagen según el tipo de archivo
+                let imageUrl = 'images/default-icon.png'; // Imagen por defecto
                 if (file.type === 'rar') {
-                    imageUrl = 'images/rar.png';
+                    imageUrl = 'rar.ico.png';
                 } else if (file.type === 'zip') {
-                    imageUrl = 'images/zip.png';
+                    imageUrl = 'rar.ico.png';
                 }
                 
                 fileElement.innerHTML = `
