@@ -42,7 +42,7 @@
         }
 
         .file img {
-            width: 100px;
+            width: 100px; /* Ajusta el tamaño de la imagen si es necesario */
             height: auto;
         }
 
@@ -60,37 +60,11 @@
 <body>
     <header>
         <h1>ZipRarFiles</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#archivos">Archivos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
     </header>
     <main>
-        <section id="inicio">
-            <h2>Bienvenido</h2>
-            <p>Bienvenido a la biblioteca de archivos ZipRarFiles. Aquí podrás encontrar y descargar varios archivos .rar y .zip.</p>
-        </section>
-        <section id="archivos">
-            <h2>Archivos</h2>
-            <div class="file-container">
-                <!-- Archivos se listarán aquí -->
-            </div>
-        </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <form id="contactForm">
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
+        <div class="file-container">
+            <!-- Archivos se listarán aquí -->
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Biblioteca de Archivos</p>
@@ -100,6 +74,7 @@
             const files = [
                 { name: 'Archivo1.rar', url: 'archivos/Archivo1.rar', type: 'rar' },
                 { name: 'Archivo2.zip', url: 'archivos/Archivo2.zip', type: 'zip' },
+                // Agrega más archivos aquí
             ];
 
             const fileContainer = document.querySelector('.file-container');
@@ -108,7 +83,8 @@
                 const fileElement = document.createElement('div');
                 fileElement.classList.add('file');
                 
-                let imageUrl = 'images/default-icon.png';
+                // Determina la imagen según el tipo de archivo
+                let imageUrl = 'images/default-icon.png'; // Imagen por defecto
                 if (file.type === 'rar') {
                     imageUrl = 'images/rar.png';
                 } else if (file.type === 'zip') {
