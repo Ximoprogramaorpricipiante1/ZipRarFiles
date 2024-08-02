@@ -4,21 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca de Archivos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c0c;
+        }
+
+        header {
+            background-color: #fc0a0a;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .file-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .file {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .file img {
+            width: 100px;
+            height: auto;
+        }
+
+        footer {
+            background-color: #f56411;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Biblioteca de Archivos</h1>
+        <h1>ZipRarFiles</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#archivos">Archivos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <div class="file-container">
-            <!-- Archivos se listarán aquí -->
-        </div>
+        <section id="inicio">
+            <h2>Bienvenido</h2>
+            <p>Bienvenido a la biblioteca de archivos ZipRarFiles. Aquí podrás encontrar y descargar varios archivos .rar y .zip.</p>
+        </section>
+        <section id="archivos">
+            <h2>Archivos</h2>
+            <div class="file-container">
+                <!-- Archivos se listarán aquí -->
+            </div>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="contactForm">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>&copy; 2024 Biblioteca de Archivos</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const files = [
+                { name: 'Archivo1.rar', url: 'archivos/Archivo1.rar', type: 'rar' },
+                { name: 'Archivo2.zip', url: 'archivos/Archivo2.zip', type: 'zip' },
+            ];
+
+            const fileContainer = document.querySelector('.file-container');
+            
+            files.forEach(file => {
+                const fileElement = document.createElement('div');
+                fileElement.classList.add('file');
+                
+                let imageUrl = 'images/default-icon.png';
+                if (file.type === 'rar') {
+                    imageUrl = 'images/rar.png';
+                } else if (file.type === 'zip') {
+                    imageUrl = 'images/zip.png';
+                }
+                
+                fileElement.innerHTML = `
+                    <img src="${imageUrl}" alt="${file.name}">
+                    <p>${file.name}</p>
+                    <a href="${file.url}" download>Descargar</a>
+                `;
+                
+                fileContainer.appendChild(fileElement);
+            });
+        });
+    </script>
 </body>
 </html>
-
